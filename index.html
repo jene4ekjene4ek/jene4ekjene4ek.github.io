@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Документ без названия</title>
+<link href="css/jqcart.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js/jqcart.min.js"></script>
+
+<style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+          margin-top: 50px;
+          
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+</style>
+
+<script>
+$(function(){
+	'use strict';	
+	// инициализация плагина
+	$.jqCart({
+			buttons: '.add_item',
+			handler: './php/handler.php',
+			cartLabel: '.label-place',
+			visibleLabel: true,
+			openByAdding: false,
+			currency: '&#8372;'
+	});	
+	// Пример с дополнительными методами
+	$('.open').click(function(){
+		$.jqCart('openCart'); // открыть корзину
+	});
+	$('#clear').click(function(){
+		$.jqCart('clearCart'); // очистить корзину
+	});	
+});
+</script>
+
+<script>
+
+  $(document).ready(function(){
+    var currentPosition = 0;
+    var slideWidth = 560;
+    var slides = $('.slide');
+    var numberOfSlides = slides.length;
+    // Убираем прокрутку
+    $('#slidesContainer').css('overflow', 'hidden');
+    // Вставляем все .slides в блок #slideInner
+    slides
+    .wrapAll('<div id="slideInner"></div>')
+    // Float left to display horizontally, readjust .slides width
+    .css({
+      'float' : 'left',
+      'width' : slideWidth
+    });
+    // Устанавливаем ширину #slideInner, равную ширине всех слайдов
+    $('#slideInner').css('width', slideWidth * numberOfSlides);
+    // Прячем правую стрелку при загрузке скрипта
+    manageControls(currentPosition);
+    // Отлавливаем клик на класс .controls
+    $('.control')
+      .bind('click', function(){
+      // Определение новой позиции
+        currentPosition = ($(this).attr('id')=='rightControl')
+      ? currentPosition+1 : currentPosition-1;
+        // Прячет / показывает элементы контроля
+        manageControls(currentPosition);
+        // Move slideInner using margin-left
+        $('#slideInner').animate({
+          'marginLeft' : slideWidth*(-currentPosition)
+        });
+      });
+    // manageControls: показывает или скрывает стрелки в зависимости от значения currentPosition
+    function manageControls(position){
+      // Спрятать левую стрелку, если это левый слайд
+      if(position==0){ $('#leftControl').hide() }
+      else{ $('#leftControl').show() }
+      // Спрятать правую стрелку, если это последний слайд
+      if(position==numberOfSlides-1){ $('#rightControl').hide() }
+      else{ $('#rightControl').show() }
+      }
+    });
+  
+  </script>
+
+
+
+</head>
+
+<body>
+    <body>
+        <div class="wrapper">
+          <section id="bar">
+            <div class="content-width">
+              <div class="header clearfix">
+                <div class="icon_header lefter">
+                  <img src="img/logo.jpg" width="310.5px" height="66px" alt="logo"></img>
+                </div>
+                <div class="icon_header lefter">
+                  <img src="img/phone_w.png" width="48px" height="47px" alt="phone" class="lefting"></img> 
+                  099-78-81-932
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="wrapper">
+          <section id="first">
+            <div class="content-width">
+                <div class="offer">
+                  Хотите   отведать   любимое   <br>ламомство
+                  прямо  сейчас?
+                </div>
+                <div class="suboffer">
+                  Доставка свежей черешни из нашего сада<br> 
+                  в Ваш дом или офис
+                </div>
+                <a class="button_bordo bold white aligner" href="#product">Заказать</a>
+            </div>
+          </section>
+        </div>
+        <div class="content-width">
+            <section id="advantages">
+                  <div class="tit bold bordo">
+                      Почему выбирают нас?
+                  </div>
+                  <div class="icons clearfix">
+                      <div class="icon lefter">
+                      Отборные ягоды
+                      </div>
+                      <div class="icon lefter">
+                      Экономия времени
+                      </div>
+                      <div class="icon lefter">
+                      Быстрая доставка
+                      </div>
+                      <div class="icon lefter">
+                      Заказ 24 часа в сутки
+                      </div>
+                      <div class="icon lefter">
+                      Экологически чистая
+                      </div>
+                  </div>    
+          </section>
+        </div>
+        <div class="wrapper">
+          <section id="we">
+            <div class="fon">
+              <div class="nonop">
+                <div class="tit1 bold bordo">
+                  Кто мы такие?
+                </div>
+                  <div class="text">
+                    Наша ферма - семейный бизнес, именно забота о здоровье собственных семей побудила нас  заняться выращиванием  черешни. <br> <br>
+                    Мы бережно отбираем наши ягоды, доставляем их непосредственно в день сбора, чтобы донести особый сладковатый вкус и насыщенный аромат питательного, полезного продукта.<br><br>								Мы предлагаем не просто доставку свежей черешни к Вам ,  а сервис, который учитывает именно ваши потребности. Мы очень хотим вместе с зарядом витаминов доставить вам радость.
+                  </div>
+      
+              </div>
+              
+            </div>
+          </section>
+        </div>
+<div class="content-width">
+  <section id="product">
+    <div class="tit bold bordo">
+        Наши сладкие ягоды 
+    </div>
+                  
+    <div class="icons clearfix">
+      <div class="item_box lefter aligner">
+        <img src="img/bagira.png" class="aligner" alt="">
+        <h3 class="item_title">Багира Булат</h3>
+        <p>Цена: <span class="item_price aligner">50</span>грн/кг</p>
+        <button class="add_item button_grey_small aligner" data-id="4" data-title="Багира Булат" data-price="50" data-img="https://www.dropbox.com/s/dlmlrfjno99xnyp/bagira.png?dl=0" data-count="100500">Добавить в корзину</button>
+        <p>
+          <button class="open button_bordo_small">Заказать</button>
+        </p>
+      </div>
+      <div class="item_box lefter aligner">
+        <img src="img/general.png"  alt="" >
+        <h3 class="item_title">Генеральская Желтая</h3>
+        <p>Цена: <span class="item_price aligner">47</span>грн/кг</p>
+        <button class="add_item button_grey_small aligner" data-id="5" data-title="Генеральская Желтая" data-price="47" data-img="https://www.dropbox.com/s/w9hevdnqgx6l3fd/general.png?dl=0">Добавить в корзину</button>
+        <p>
+          <button class="open button_bordo_small">Заказать</button>
+        </p>
+      </div>
+      <div class="item_box lefter alirner">
+        <img src="img/napoleon.png" class="aligner" alt="">
+        <h3 class="item_title">Наполеон</h3>
+        <p>Цена: <span class="item_price">47</span>грн/кг</p>
+        <button class="add_item button_grey_small aligner" data-id="6" data-title="Наполеон" data-price="47" data-img="https://www.dropbox.com/s/svefsyjq9gk440q/napoleon.png?dl=0g">Добавить в корзину</button>
+        <p>
+          <button class="open button_bordo_small aligner">Заказать</button>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="wrapper">
+  <section id="feedback">
+      <div class="fon_2">
+          <div class="content-width">
+              <div class="tit3 bold bordo">
+                  Отзывы наших клиентов
+              </div>
+              <div id="slideshow">
+                  <div id="slidesContainer">
+                      <div class="slide">
+                          <div class="post_otzivy">
+                              <img src="img/otziv1.png" alt="Svetlana" class="lefting"></img> 
+                                  Спасибо большое за качество и оперативность доставки. Уже несколько раз заказывала черешню своим детям. Все просто шикарно - быстро, четко.<br><br>
+                                  Светдана, домохозяйка
+                              
+                          </div>
+                      </div>
+                      <div class="slide">
+                          <div class="post_otzivy">
+                              <img src="img/otziv2.png" alt="Marina" class="lefting"></img> 
+                                  Большое спасибо! Все привезли вовремя, товар хорошего качества.<br><br>
+                                  Марина, офис-менеджер
+                          
+                          </div>
+                      </div>
+                  </div>
+              </div>        
+              <a href="javascript:void(0);" class="control prev" id="leftControl">< Предыдущий отзыв</a>
+                  <a href="javascript:void(0);" class="control next" id="rightControl">Следующий отзыв ></a>
+          </div>
+      </div>
+  </section>
+</div>
+<div class="content-width">
+    <section id="principles">
+          <div class="tit bold bordo">
+              Принципы работы
+          </div>
+          <div class="icons clearfix">
+              <div class="priciple lefter">
+              Оформление заказа
+                  <div class="opis lefter">
+                      Оформить заказ можно на сайте или по телефону, при необходимости мы поможем Вам с оформлением
+                  </div>
+              </div>
+              <div class="priciple lefter">
+              Комлектация заказа
+                  <div class="opis lefter">
+                      Мы собираем и отбираем для Вас самые спелые и сочные ягоды. Мы комлектуем заказ в деть отправки
+                  </div>
+              </div>
+              <div class="priciple lefter">
+              Доставка заказа <br><br>
+                  <div class="opis lefter">
+                      В оговоренное заранее время наш курьер доствит заказ к Вашему дому или офису. Также возможен самовывоз
+                  </div>
+              </div>
+              <div class="priciple lefter">
+                  Оплата заказа <br><br>
+                      <div class="opis lefter">
+                          Оплатить заказ Вы можете при получении наличными  или картой Visa/Master Card
+                      </div>
+      </div>
+    </div>	
+    <div class="but">
+      <a class="button_bordo bold white aligner" href="#product">Заказать</a>
+    </div>
+      </section>
+</div>
+<div class="content-width">
+    <section id="principles">
+          <div class="tit bold bordo">
+            Как нас найти
+          </div>
+    </section>
+</div>
+
+<div id="map"></div>
+<script>
+
+        // This example displays a marker at the center of Australia.
+        // When the user clicks the marker, an info window opens.
+
+        function initMap() {
+            var uluru = {lat: 49.752056, lng: 36.145278};
+            var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+            });
+
+            var contentString = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">Черешенка он-лайн</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>ул. Мира, 21Б, с. Тимченки</b></p>'+
+                '</div>'+
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+            content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: 'Uluru (Ayers Rock)'
+            });
+            marker.addListener('click', function() {
+            infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwPKxv04KdJ3zi7cNvWyKOkI6vrAV86Vk&callback=initMap">
+    </script>
+
+<div class="wrapper">
+  <section id="footter">
+    <div class="content-width">
+      <div class="icons clearfix">
+        <div class="footer_text lefter">
+          2015-2018, cherryonline.com
+        </div>
+        <div class="footer_text lefter">
+          Мы в социальных сетях:
+        </div>
+        <div class="footer_text lefter">
+          <a href="https://www.facebook.com"> <img src="img/facebook.png" width="48px" height="47px" alt="facebook"></img> 
+        </div>
+        <div class="footer_text lefter">
+          <a href="https://plus.google.com"> <img src="img/google.png" width="48px" height="47px" alt="goole plus"></img>
+        </div> 
+        <div class="footer_text lefter">
+          <a href="https://twitter.com"> <img src="img/twitter.png" width="48px" height="47px" alt="twitter"></img> 
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
+
+    
+
+
+

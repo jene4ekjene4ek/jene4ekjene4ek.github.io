@@ -1,6 +1,6 @@
 <?php
-parse_str($_POST['orderlist'], $orderlist);
-parse_str($_POST['userdata'], $userdata);
+parse_str($_GET['orderlist'], $orderlist);
+parse_str($_GET['userdata'], $userdata);
 /*
 $orderlist - массив со списком заказа
 $userdata - данные заказчика

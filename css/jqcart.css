@@ -1127,11 +1127,13 @@ p {
     height:263px;
     overflow:auto; /* разрешаем прокрутку */
     position:relative;
+    margin-top: 50px;
   }
   #slideshow #slidesContainer .slide {
     margin:0 auto;
     width:540px; 
     height:263px;
+    margin-top: 50px;
   }
   /**
    * Slideshow controls style rules.
@@ -1181,11 +1183,13 @@ p {
     height:263px;
     overflow:auto; /* разрешаем прокрутку */
     position:relative;
+    margin-top: 50px;
   }
   #slideshow #slidesContainer .slide {
     margin-left: 0;
     width:540px; 
     height:263px;
+    margin-top: 50px;
   }
   /**
    * Slideshow controls style rules.
@@ -1203,9 +1207,9 @@ post_otzivy {
     font-size: 25px;
     text-align: left;
     padding-top: 0px;
-    margin: 0px;
-   	color: black;
+    color: black;
 	margin-left: 50px;
     margin-right: 50px;
     width: 600px;
 }
+
